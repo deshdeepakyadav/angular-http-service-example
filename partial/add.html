@@ -1,0 +1,23 @@
+<div class="row col-lg-12 marginTop">
+<div class="col-lg-4">
+<span class="col-lg-3">Name :</span>
+<span class="col-lg-9"><input type="text" data-ng-model="nameTxt"></span>
+</div>
+<div class="col-lg-4">
+<span class="col-lg-4">Location :</span>
+<span class="col-lg-8"><input type="text" data-ng-model="locationTxt"></span>
+</div>
+<div class="col-lg-4">
+<span class="col-lg-3"><button type="button" class="btn btn-primary" data-ng-click="add()">Add</button></span>
+<span class="col-lg-9"></span>
+</div>
+</div>
+
+<div class="row col-lg-12 marginTop">
+<table class="table">
+<tr><td>Sr.</td><td>Name</td><td>Location</td></tr>
+<tr data-ng-repeat="cust in customers">
+<td>{{$index+1}}</td><td>{{cust.name | uppercase }}</td><td>{{cust.location | lowercase}}</td>
+</tr>
+</table>
+</div>

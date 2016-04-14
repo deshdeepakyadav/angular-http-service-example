@@ -1,0 +1,9 @@
+<div class="row col-lg-12 marginTop">
+<table class="table">
+<tr><td>ID.</td><td>Name</td><td>Location</td><td></td></tr>
+<tr data-ng-repeat="cust in customers">
+<td>{{$index+1}}</td><td>{{cust.name | uppercase }}</td><td>{{cust.location | lowercase}}</td>
+<td><button type="button" class="btn btn-primary" data-ng-click="remove($index)">Delete</td>
+</tr>
+</table>
+</div>
