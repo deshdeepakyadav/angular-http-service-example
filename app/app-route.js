@@ -1,10 +1,14 @@
-var myDataApp = angular.module('dataApp',['ngRoute','showDataCtrl','addCtrl','updateCtrl','removeCtrl']);
+var myDataApp = angular.module('dataApp',['ngRoute','showDataCtrl','addCtrl','updateCtrl','removeCtrl','myService']);
 	
 	myDataApp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 		  $routeProvider.
 				when('/',{
 				templateUrl: 'partial/list.html',
-				controller: 'showDataController'				
+				controller: 'showDataController',
+				resolve: {
+						load: function(myappService) {
+						return myappService;
+						}}
 				}).
 				when('/add',{
 				templateUrl: 'partial/add.html',

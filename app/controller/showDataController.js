@@ -1,10 +1,10 @@
-var showDataCtrl = angular.module('showDataCtrl',['myService']);
+var showDataCtrl = angular.module('showDataCtrl',[]);
 
 
-showDataCtrl.controller('showDataController',['$scope','myappService',function($scope,myappService){
+showDataCtrl.controller('showDataController',['$scope','load',function($scope,load){
 	
-	$scope.customers=myappService.getCustomers();
-						  
+	//$scope.customers=myappService.getCustomers();
+		console.log(load);				  
 
 }]);
 
