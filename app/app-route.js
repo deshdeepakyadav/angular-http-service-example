@@ -5,24 +5,25 @@ var myDataApp = angular.module('dataApp',['ngRoute','showDataCtrl','addCtrl','up
 				when('/',{
 				templateUrl: 'partial/list.html',
 				controller: 'showDataController',
-				resolve: {
-						load: function(myappService) {
-						return myappService;
-						}}
+				resolve: showDataCtrl.resolve
 				}).
 				when('/add',{
 				templateUrl: 'partial/add.html',
-				controller: 'addController'				
+				controller: 'addController',	
+				resolve: addCtrl.resolve
 				}).
 				when('/modify',{
 				templateUrl: 'partial/modify.html',
-				controller: 'updateController'				
+				controller: 'updateController',
+				resolve: updateCtrl.resolve				
 				}).
 				when('/delete',{
 				templateUrl: 'partial/delete.html',
-				controller: 'removeController'				
+				controller: 'removeController',
+				resolve: removeCtrl.resolve					
 				}).
 				otherwise({redirectTo: '/'});
 				$locationProvider.html5Mode(true);
+				
 
 	}]);

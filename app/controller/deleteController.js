@@ -1,9 +1,9 @@
-var removeCtrl = angular.module('removeCtrl',['myService']);
+var removeCtrl = angular.module('removeCtrl',[]);
 
 
-removeCtrl.controller('removeController',['$scope','myappService',function($scope,myappService){
+removeCtrl.controller('removeController',['$scope','load',function($scope,load){
 
-	$scope.customers=myappService.getCustomers();
+	$scope.customers=load;
 				 
 
 	$scope.remove=function(id){
@@ -13,7 +13,11 @@ removeCtrl.controller('removeController',['$scope','myappService',function($scop
 
 }]);
 
-	 
+removeCtrl.resolve={
+						load: ['myappService',function(myappService) {
+						return myappService.getCustomers();
+						}]
+					 }	
 				 
 				 
 				 

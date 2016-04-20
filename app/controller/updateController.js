@@ -1,9 +1,9 @@
 var updateCtrl = angular.module('updateCtrl',['myService']);
 
 
-updateCtrl.controller('updateController',['$scope','myappService',function($scope,myappService){
+updateCtrl.controller('updateController',['$scope','load',function($scope,load){
 	
-	$scope.customers=myappService.getCustomers();
+	$scope.customers=load;
 					
 	$scope.edit=function(id){
 							for(i in $scope.customers){
@@ -28,6 +28,12 @@ updateCtrl.controller('updateController',['$scope','myappService',function($scop
 						  
 
 }]);
+
+updateCtrl.resolve={
+						load: ['myappService',function(myappService) {
+						return myappService.getCustomers();
+						}]
+					 }	
 
 	 
 				 
